@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../components/Layout";
 import axios from "axios"
 import Guitarra from "../components/Guitarra";
+import tiendaContext from "../contexts/tiendaContext";
 import styles from "../styles/Tienda.module.css"
 export async function getServerSideProps({context}){
   try{
@@ -20,6 +21,8 @@ export async function getServerSideProps({context}){
 }
 
 const Tienda = ({guitarras}) => {
+  const { tienda } = useContext(tiendaContext)
+  console.log(tienda)
   console.log(guitarras)
   return (
     <div>

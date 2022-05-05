@@ -8,7 +8,9 @@ import Curso from "../components/Curso";
 import Entrada from "../components/Entrada";
 import Slider from "react-slick";
 import Pagination from "../components/Pagination";
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import styles from "../styles/Home.module.css";
+
 
 export async function getServerSideProps({ context }) {
   try {
@@ -33,6 +35,8 @@ export async function getServerSideProps({ context }) {
 }
 
 export default function Home({ guitarras, curso, blogs,totalGuitarras }) {
+
+  
   const [page,setPage] = useState(1)
   const [currentGuitarras,setCurrentGuitarras] = useState(guitarras)
   useEffect(()=>{

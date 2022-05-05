@@ -83,6 +83,10 @@
 .formulario input[type="submit"]:hover{
 	background-color: black;
 }
+.formulario input[type="submit"]:disabled{
+	background-color: gray;
+  cursor: auto;
+}
 
 .back{
   padding:4rem;
