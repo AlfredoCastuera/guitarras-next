@@ -2,8 +2,10 @@ import React,{ useState ,useContext } from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 import tiendaContext from "../../contexts/tiendaContext";
 import styles from "../../styles/Guitarra.module.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { truncateText } from "../../helpers/truncateText";
 
 export async function getServerSideProps({ params: { slug } }) {
@@ -33,12 +35,22 @@ const DetalleGuitarra = ({ guitarra }) => {
     precio,
     id
   } = guitarra;
-  const [cantidad,setCantidad] = useState(0)
+  const [cantidad,setCantidad] = useState("0")
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log({cantidad:Number(cantidad),id,nombre,precio})
-    agregarProducto({cantidad:Number(cantidad),id,nombre,precio})
+    console.log({cantidad:Number(cantidad),id,nombre,precio,url})
+    agregarProducto({cantidad:Number(cantidad),id,nombre,precio,url})
+    toast.success('🎸 Producto agregado ', {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      icon:false
+      });
   }
   return (
     <Layout title={nombre}>
@@ -75,6 +87,18 @@ const DetalleGuitarra = ({ guitarra }) => {
           </form>
         </div>
       </div>
+      <ToastContainer 
+        progressClassName="primary-progress-var"
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Layout>
   );
 };

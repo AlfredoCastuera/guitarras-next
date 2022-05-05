@@ -32,7 +32,7 @@ const Tienda = ({guitarras}) => {
           <div className={styles.grid}>
             {
               guitarras.length && (
-                guitarras.map(guitarra=>(<Guitarra guitarra={guitarra} />))
+                guitarras.map(guitarra=>(<Guitarra key={guitarra.id} guitarra={guitarra} />))
               )
             }
           </div>

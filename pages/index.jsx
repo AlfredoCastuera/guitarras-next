@@ -45,10 +45,10 @@ export default function Home({ guitarras, curso, blogs,totalGuitarras }) {
       console.log('skip',skip)
       try{
         const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/guitarras?_start=${skip}&_limit=6`)
-        setCurrentGuitarras(data)
+        setCurrentGuitarras([...data])
       }
       catch(err){
-        setCurrentGuitarras([...currentGuitarras])
+        setCurrentGuitarras(currentGuitarras => [...currentGuitarras])
       }
     }
     getNextGuitars()

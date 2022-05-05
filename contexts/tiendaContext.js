@@ -21,14 +21,23 @@ export const TiendaContextProvider = ({children}) => {
 			}
 			return tienda
 		 }
-
 		setTienda(manageStore([...tienda,producto]))
+	}
+	const quitarProducto = (id) => {
+		setTienda(tienda.filter(item=>item.id!==id))
+	}
+	const modificarProducto = (id,cantidad) => {
+		setTienda(tienda.map(item=>{
+			return item.id===id ? {...item,cantidad:cantidad} : item
+		}))
 	}
   return (
 		<tiendaContext.Provider
 			value={{
 				tienda,
-				agregarProducto
+				agregarProducto,
+				quitarProducto,
+				modificarProducto
 			}}
 		>
 			{children}

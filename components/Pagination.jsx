@@ -6,7 +6,7 @@ const Pagination = ({size,page,setPage}) => {
   return (
 		<div className={styles.container}>
 			{
-				range(size).map(item=>(<button 
+				range(size).map((item)=>(<button key={item} 
 					className={`${page===item ? styles.active : ""}`}
 					value={item} 
 					onClick={()=>setPage(item)}>{item}</button>))
