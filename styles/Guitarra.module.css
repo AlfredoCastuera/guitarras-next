@@ -3,6 +3,8 @@
   grid-template-columns: 2fr 3fr;
   column-gap: 1rem;
   align-items: center;
+  animation-name: mostrarGuitarra;
+  animation-duration: 1s;
 }
 .imagen{
 	padding:8rem;
@@ -111,4 +113,16 @@
   background-color: var(--blanco);
   color:var(--negro);
   outline:2px solid var(--primary)
+}
+
+@keyframes mostrarGuitarra {
+  0%{
+      opacity:0;
+      transform: translateY(-20px);
+  }
+
+  100%{
+      opacity:1;
+      transform: translateY(0);
+  }
 }

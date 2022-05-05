@@ -1,0 +1,28 @@
+.container{
+    margin-top:10rem;
+    display:flex;
+    justify-content: center;
+}
+.container button{
+    padding: 1rem 2rem;
+    color:var(--negro);
+    background-color: var(--blanco);
+    border:none;
+    border-top:2px solid gray;
+    border-bottom:2px solid gray;
+    border-right:2px solid gray;
+    transition: background-color,color;
+    transition-duration: .2s,.2s;
+    transition-timing-function: ease-in;
+    cursor: pointer;
+}
+.container button:first-child{
+    border-left:2px solid gray;
+}
+.container button:hover{
+    background-color: rgb(230,230,230);
+}
+.active{
+    color:var(--blanco) !important;
+    background-color: var(--primary) !important;
+}
