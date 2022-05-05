@@ -2,6 +2,7 @@
     background-image: linear-gradient(to right, rgb(0 0 0 / 0.8), rgb(0 0 0 / 0.7)), url(../public/img/header.jpg) ;
     background-position: 50%;
     padding: 5rem 0;
+    position: relative;
 }
 .barra{
     display:flex;
@@ -21,17 +22,25 @@
 .navegacion{
     margin-top: 5rem;
     display:flex;
-    gap:2rem
+    gap:2rem;
+    position: relative;
+    z-index: 2;
 }
 @media (min-width:768px){
     .navegacion{
       margin-top: 0;
     }
 }
+@media (min-width:992px){
+    .navegacion{
+      margin-right: 22rem;
+    }
+}
+
 .navegacion a {
     color: var(--blanco);
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     padding:0.5rem 1rem;
@@ -44,4 +53,86 @@
 .navegacion a:hover {
     background-color: var(--primary);
    
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    margin:0 4rem;
+}
+@media (min-width:768px){
+    .grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.grid a {
+    color: var(--blanco);
+    display: block;
+    width: 100%;
+    background-color: var(--white);
+    border: 2px solid var(--primary);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition-property: background-color;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+  }
+@media (min-width:768px){
+    .grid a{
+        width:60%;
+        max-width: 25rem;
+    }
+}
+  
+  .grid a:hover {
+    background-color: var(--primary);
+    color: var(--blanco);
+  }
+
+.titulo{
+    color:var(--blanco);
+    font-size:4rem;
+    margin-top:4rem;
+}
+.descripcion{
+    color:var(--blanco);
+    font-size:1.4rem;
+    margin:1rem 0;
+}
+.precio{
+    color:var(--primary);
+    font-size:3rem;
+    font-weight: 700;
+    margin:1rem 0;
+}
+.guitarra{
+    display: none;
+    position:absolute;
+    height: 160%;
+    right: 0;
+    bottom:0;
+    animation-name: mostrarImagen;
+    animation-duration: 1s;
+}
+@media (min-width:992px){
+    .guitarra{
+        display: block;
+    }
+}
+@keyframes mostrarImagen {
+    0%{
+        opacity:0;
+        transform: translateX(-10px);
+    }
+
+    100%{
+        opacity:1;
+        transform: translateX(0);
+    }
 }

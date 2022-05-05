@@ -4,10 +4,9 @@ import Layout from "../../components/Layout";
 import Entrada from "../../components/Entrada";
 import styles from '../../styles/Blog.module.css'
 
-const baseUrl = "http://localhost:1337/blogs"
 export async function getServerSideProps(context){
   try{
-    const {data} = await axios.get(baseUrl)
+    const {data} = await axios.get(`${process.env.API_URL}/blogs`)
     return { props: { blogs:data } }
   }catch(err){
     console.log(err)
