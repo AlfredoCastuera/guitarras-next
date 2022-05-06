@@ -63,6 +63,29 @@ export default function Home({ guitarras, curso, blogs,totalGuitarras }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   return (
     <Layout title="inicio" guitarras={guitarras}>
@@ -77,7 +100,7 @@ export default function Home({ guitarras, curso, blogs,totalGuitarras }) {
         <Pagination size={numberOfPages} page={page} setPage={setPage}/>
       </main>
       <Curso curso={curso} />
-      <aside>
+      <aside style={{overflow:"hidden"}}>
         <main className={`contenedor `}>
           <h2 className="heading">Blog</h2>
           <Slider {...settings}>

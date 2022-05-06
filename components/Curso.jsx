@@ -18,8 +18,7 @@ const Curso = ({ curso }) => {
             margin-top:10rem;
             background-image:linear-gradient(to right, rgb(0 0 0 / .65 ),rgb(0 0 0 / .7)),url(${imagen.url});
             background-size:cover;
-            background-position:50%;
-
+            background-position:50%
         }
       `}</style>
     </section>

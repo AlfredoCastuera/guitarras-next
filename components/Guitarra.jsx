@@ -15,7 +15,7 @@ const Guitarra = ({ guitarra }) => {
   } = guitarra;
 	const [flip,setFlip] = useState(false)
   return (
-    <ReactCardFlip isFlipped={flip}>
+    <div>
       <div className={styles.guitarra}>
         <Image
           layout="responsive"
@@ -29,15 +29,15 @@ const Guitarra = ({ guitarra }) => {
           <p>{truncateText(descripcion, 110)}</p>
           <p className={styles.precio}>${precio}</p>
           <Link href={`/guitarras/${slug}`}>Ver guitarra</Link>
-					<button className={styles.flip_button} onClick={()=>setFlip(true)}>Más informacion</button>
+					{/* <button className={styles.flip_button} onClick={()=>setFlip(true)}>Más informacion</button> */}
         </div>
       </div>
 
-			<div className={styles.back}>
+			{/* <div className={styles.back}>
 				<p>{truncateText(descripcion, 300)}</p>
 				<button className={styles.flip_button} onClick={()=>setFlip(false)}>Volver</button>
-			</div>
-    </ReactCardFlip>
+			</div> */}
+    </div>
   );
 };
 
